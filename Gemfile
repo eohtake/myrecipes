@@ -16,8 +16,9 @@ group :development, :test do
   gem 'spring'
   gem 'sqlite3'
   gem 'pry'
+end
 
-group :production, do
+group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
