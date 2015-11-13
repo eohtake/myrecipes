@@ -1,0 +1,14 @@
+<% if obj.errors.any? %> <!-- o objeto @recipe não está disponível neste arquivo,
+                              por isso colocamos 'obj' no lugar, que será passado
+                              no arquivo que fará o render deste partial. -->
+  <div class="row">
+    <div class="alert alert-danger col-md-8 col-md-offset-2">
+      <h5>Please correct the following errors:</h5>
+      <ul>
+        <% obj.errors.full_messages.each do |msg| %> <!-- Mesmo caso da primeira linha -->
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

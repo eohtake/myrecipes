@@ -1,0 +1,22 @@
+<%= render 'shared/errors', obj: @recipe %> <!-- Passamos o objeto @recipe para o 'obj' para que o partial saiba qual conexão deverá usar -->
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @recipe do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :summary %>
+      <%= f.text_field :summary %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10 %>
+      <p></p>
+<!-- Linha 27: Utiliza o método new_record para avaliar se o que está sendo manipulado é inclusão ou edição.
+Retorna valor true ou false. O caracter ':' funciona como 'else'. Então caso o usuário estiver criando
+uma receita, o botão é nomeado para Create Recipe, se ele estiver editando uma receita, o botão é gerado com
+o texto Update Recipe -->
+      <%= f.submit(@recipe.new_record? ? 'Create Recipe' : 'Update Recipe', class: "btn btn-success") %>
+    <% end %>
+  </div>
+</div>
